@@ -4,7 +4,6 @@ pragma solidity >=0.8.10 <0.9.0;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "./DexToken.sol";
 import "./AutomatedMarketMaker.sol";
 
 contract LiquidityPool is ReentrancyGuard {
@@ -26,7 +25,7 @@ contract LiquidityPool is ReentrancyGuard {
     uint256 public percScale = 1e18;
     uint256 private poolTotalDeposits = 0;
     uint256 constant PRECISION = 1_000_000;
-    DexToken private _depositToken;
+    ERC20 private _depositToken;
 
     bool allLPsCanWithdraw = true;
     event CapitalProvided(address optionsMarketAddress, uint256 amount);
